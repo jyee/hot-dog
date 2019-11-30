@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hot-dog
-        image: jyee/hot-dog:0.1.1
+        image: jyee/hot-dog:0.1.2
         imagePullPolicy: Always
         env:
         - name: SAVE_DOG_LAMBDA
