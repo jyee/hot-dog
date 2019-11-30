@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+  <title>Hot Dog!</title>
+
+  <style>
+    body {
+      background-color: #311652;
+      text-align: center;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+      font-size: 60px;
+    }
+    .dogs {
+    }
+    .dogs:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .dog {
+      float: left;
+      width: 50%;
+    }
+    img {
+      width: 480px;
+      height: auto;
+    }
+    input[type=submit] {
+      background-color: #632CA6;
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 30px;
+      color: #ffffff;
+    
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Hot Dog?</h1>
+
+  <div class="dogs">
+    <div class="dog">
+      <form action="/" method="post">
+        <img src="{{dog1}}" /><br />
+        <input type="hidden" name="dog1" value="{{dog1}}" />
+        <input type="hidden" name="count1" value="{{count1}}" />
+        <input type="submit" value="Hot Dog!" />
+      </form>
+    </div>
+
+    <div class="dog">
+      <form action="/" method="post">
+        <img src="{{dog2}}" /><br />
+        <input type="hidden" name="dog2" value="{{dog2}}" />
+        <input type="hidden" name="count2" value="{{count2}}" />
+        <input type="submit" value="Hot Dog!" />
+      </form>
+    </div>
+  </div>
+
+</body>
