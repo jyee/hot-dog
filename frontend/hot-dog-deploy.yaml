@@ -19,8 +19,8 @@ spec:
         image: jyee/hot-dog:0.1.1
         imagePullPolicy: Always
         env:
-        #- name: SAVE_DOG_LAMBDA
-        #  value: "http://"
+        - name: SAVE_DOG_LAMBDA
+          value: "https://"
         - name: DOGSTATSD_HOST_IP
           valueFrom:
             fieldRef:
@@ -28,18 +28,3 @@ spec:
         ports:
         - containerPort: 5000
           protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    run: hot-dog
-  name: hot-dog
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 5000
-  selector:
-    run: hot-dog
-  type: LoadBalancer
