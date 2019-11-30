@@ -28,7 +28,7 @@ def index():
 
         if count1 > 2:
             save_dog(dog1)
-            return render_template("hot-dog.html", dog = dog1)
+            return render_template("hottest-dog.html", dog = dog1)
     else:
         dog1 = get_dog()
         count1 = 0
