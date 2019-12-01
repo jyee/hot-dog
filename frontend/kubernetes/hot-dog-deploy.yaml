@@ -23,7 +23,7 @@ spec:
               protocol: TCP
           env:
             - name: SAVE_DOG_LAMBDA
-              value: "https://"
+              value: "<YOUR AWS LAMBDA URL>"
             - name: DD_AGENT_HOST
               valueFrom:
                 fieldRef:

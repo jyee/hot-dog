@@ -46,8 +46,7 @@ plugins:
 
 custom:
   datadog:
-    apiKey: "6eaf73472b41ebbe30a25647458063b1"
-
+    apiKey: "<YOUR DATADOG API KEY>"
 
 package:
   exclude:
