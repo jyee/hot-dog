@@ -23,6 +23,8 @@ provider:
   memorySize: 128
   stage: dev
   region: us-west-2
+  logs:
+    restApi: true
 
   iamRoleStatements:
     - Effect: Allow

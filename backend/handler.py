@@ -16,7 +16,7 @@ def hotdogsave(event, context):
     if "terrier" in dog:
         code = 500
         message = "WOOF! No terriers allowed!"
-        logger.info(message)
+        logger.exception(message)
         raise Exception(message)
     else:
         code = 200
