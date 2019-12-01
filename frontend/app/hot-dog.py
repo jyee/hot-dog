@@ -42,7 +42,7 @@ def save_dog(dog):
     statsd.increment("hot_dog.save_dog")
     if "SAVE_DOG_LAMBDA" in os.environ:
         r = requests.put(os.environ.get("SAVE_DOG_LAMBDA"), json = {"dog": dog})
-        print(r.json())
+        r.raise_for_status()
 
 @tracer.wrap()
 def get_dog():
