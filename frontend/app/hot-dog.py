@@ -5,6 +5,10 @@ from flask import Flask, render_template, request
 import os
 import requests
 
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
 app = Flask(__name__)
 
 

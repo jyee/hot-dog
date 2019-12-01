@@ -25,8 +25,5 @@ def hotdogsave(event, context):
 
     return {
         "statusCode": code,
-        "body": {
-            "message": message,
-            "filename": filename
-        }
+        "body": message
     }
