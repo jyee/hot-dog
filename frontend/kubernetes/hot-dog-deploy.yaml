@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: hot-dog
+  name: hot-dog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: hot-dog
+  template:
+    metadata:
+      labels:
+        run: hot-dog
+    spec:
+      containers:
+        - name: hot-dog
+          image: jyee/hot-dog:0.1.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          env:
+            - name: SAVE_DOG_LAMBDA
+              value: "https://"
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DOGSTATSD_HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DATADOG_SERVICE_NAME                                                                                            
+              value: "lolcat"                                                                                                       
+            - name: DD_ANALYTICS_ENABLED                                                                                            
+              value: "true"                                                                                                         
+            - name: DD_LOGS_INJECTION                                                                                               
+              value: "true" 

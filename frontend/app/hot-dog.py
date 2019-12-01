@@ -1,19 +1,8 @@
 # Flask
+from datadog import statsd
 from flask import Flask, render_template, request
-import requests
 import os
-
-# Datadog tracing and metrics
-from datadog import initialize, statsd
-from ddtrace import tracer, patch_all
-
-if "DOGSTATSD_HOST_IP" in os.environ:
-    initialize(statsd_host = os.environ.get("DOGSTATSD_HOST_IP"))
-    tracer.configure(hostname = os.environ.get("DOGSTATSD_HOST_IP"))
-
-# Apply some base tags and patch for Datadog tracing.
-statsd.constant_tags = ["env:twitch-demo"]
-patch_all()
+import requests
 
 app = Flask(__name__)
 

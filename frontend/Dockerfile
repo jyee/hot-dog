@@ -8,4 +8,4 @@ COPY app/templates ./templates/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD [ "python", "./hot-dog.py" ]
+CMD [ "ddtrace-run", "python", "./hot-dog.py" ]
