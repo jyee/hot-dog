@@ -1,5 +1,6 @@
 # Flask
 from datadog import statsd
+from ddtrace import tracer
 from flask import Flask, render_template, request
 import os
 import requests
@@ -36,13 +37,14 @@ def index():
     return render_template("hot-dog.html", dog1 = dog1, count1 = count1, dog2 = dog2, count2 = count2)
 
 
+@tracer.wrap()
 def save_dog(dog):
     statsd.increment("hot_dog.save_dog")
     if "SAVE_DOG_LAMBDA" in os.environ:
         r = requests.put(os.environ.get("SAVE_DOG_LAMBDA"), json = {"dog": dog})
         print(r.json())
 
-
+@tracer.wrap()
 def get_dog():
     statsd.increment("hot_dog.generate_dog")
     r = requests.get("https://dog.ceo/api/breeds/image/random")
