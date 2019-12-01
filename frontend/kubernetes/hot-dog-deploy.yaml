@@ -32,9 +32,9 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
-            - name: DATADOG_SERVICE_NAME                                                                                            
-              value: "lolcat"                                                                                                       
-            - name: DD_ANALYTICS_ENABLED                                                                                            
-              value: "true"                                                                                                         
-            - name: DD_LOGS_INJECTION                                                                                               
-              value: "true" 
+            - name: DATADOG_SERVICE_NAME
+              value: "hotdog-frontend"
+            - name: DD_ANALYTICS_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"
