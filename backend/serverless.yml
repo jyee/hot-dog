@@ -42,11 +42,6 @@ functions:
 
 plugins:
   - serverless-python-requirements
-  - serverless-plugin-datadog
-
-custom:
-  datadog:
-    apiKey: "<YOUR DATADOG API KEY>"
 
 package:
   exclude:

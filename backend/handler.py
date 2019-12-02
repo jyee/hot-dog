@@ -1,5 +1,4 @@
 import boto3
-from datadog_lambda.wrapper import datadog_lambda_wrapper
 import json
 import requests
 
@@ -7,7 +6,6 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-@datadog_lambda_wrapper
 def hotdogsave(event, context):
     body = json.loads(event["body"])
     dog = body["dog"]
