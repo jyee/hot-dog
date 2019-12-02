@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: hot-dog
-          image: jyee/hot-dog:0.1.6
+          image: jyee/hot-dog:0.1.6-uninstrumented
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
@@ -24,17 +24,3 @@ spec:
           env:
             - name: SAVE_DOG_LAMBDA
               value: "<YOUR AWS LAMBDA URL>"
-            - name: DD_AGENT_HOST
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
-            - name: DOGSTATSD_HOST_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.hostIP
-            - name: DATADOG_SERVICE_NAME
-              value: "hotdog-frontend"
-            - name: DD_ANALYTICS_ENABLED
-              value: "true"
-            - name: DD_LOGS_INJECTION
-              value: "true"
